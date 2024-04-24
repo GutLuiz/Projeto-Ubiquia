@@ -1,0 +1,125 @@
+header {
+    height: 70px;
+    background-color: rgb(4, 4, 72);
+    color: white;
+    padding: 10px 20px;
+    display: flex;        
+    justify-content: space-between;
+    align-items: center;     
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border: none;
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.logo img {
+    height: 300px;
+}
+
+.h2{
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; 
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.form-container {
+    background-color: #ffffff; /* Fundo branco para uma aparência mais limpa */
+    padding: 15px; /* Espaçamento interno um pouco maior para melhor visualização */
+    margin: 20px auto; /* Centraliza o formulário na página */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra leve para dar profundidade */
+    width: 90%; /* Ajusta a largura */
+    max-width: 700px; /* Limite máximo de largura */
+    border: 1px solid #ccc; /* Borda sutil */
+}
+
+form label {
+    display: block;
+    margin-top: 8px; /* Espaçamento vertical entre os campos */
+    font-size: 1em; /* Tamanho de fonte padrão */
+    color: #333; /* Cor de fonte mais escura para melhor leitura */
+}
+
+form input[type="text"],
+form select,
+form textarea,
+form input[type="file"] {
+    width: 100%;
+    padding: 10px; /* Maior padding para melhor toque */
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px; /* Bordas levemente arredondadas */
+    border: 1px solid #ccc; /* Borda sutil */
+    box-sizing: border-box;
+}
+
+form textarea {
+    height: 100px; /* Espaço adequado para texto mais longo */
+    resize: vertical; /* Permite ao usuário ajustar verticalmente se necessário */
+}
+
+form button {
+    background-color: #4e4caf; /* Cor de fundo verde para o botão */
+    color: rgb(238, 230, 230); /* Texto branco para contraste */
+    padding: 10px 10px; /* Padding generoso para melhor toque */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro para indicar ação */
+    font-size: 1em; /* Tamanho de fonte legível */
+    box-shadow: 0 2px 4px rgba(155, 25, 25, 0.2); /* Sombra para efeito 3D */
+    transition: background-color 0.3s; /* Transição suave para hover */
+}
+
+form button:hover {
+    background-color: #e5f0e5; /* Cor mais clara no hover */
+}
+
+/* Aumentar o tamanho da caixa de enviar a foto */
+form input[type="file"] {
+    padding: 25px; /* Aumentando o preenchimento para aumentar o tamanho */
+}
+
+.butaoEnvia {
+    color: #ffffff; /* Letras brancas */
+    background-color: blue; /* Fundo preto */
+    padding: 10px 20px; /* Preenchimento */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro */
+    font-size: 1em; /* Tamanho da fonte */
+}
+
+.butao-container {
+    text-align: center; /* Centralizar o conteúdo */
+    margin-top: 21px; /* Espaçamento acima do botão */
+}
+
+.butaoEnvia:hover {
+    background-color: #333333; /* Fundo preto mais escuro no hover */
+
+}
