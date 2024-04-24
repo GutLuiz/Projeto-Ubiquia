@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Cabeçalho</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="CONSCIENTIZA__3_-removebg-preview.png" alt="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Denuncie Aqui</a></li>
+                <li><a href="#sobre">Perguntas Frequentes</a></li>
+                <li><a href="#contato">Sobre nos</a></li>
+               
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <h2 class="h2">Realize sua denúncia aqui!</h2>
+        <div class="form-container">
+            <form action="/submit-form" method="post">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+    
+                <label for="contato">Contato:</label>
+                <input type="text" id="contato" name="contato" required>
+    
+                <label for="tipo-denuncia">Tipo de denúncia:</label>
+                <select id="tipo-denuncia" name="tipo_denuncia">
+                    <option value="lixo">Lixo</option>
+                    <option value="desmatamento">Desmatamento</option>
+                </select>
+    
+                <fieldset>
+                    <legend>Localização da denúncia:</legend>
+                    
+                    <button type="button" id="buscar-localizacao">Buscar Localização Atual</button>
+                    
+                        <input type="radio" name="localizacao" value="escrita"> Informar CEP
+                    </label>
+                    <input type="text" id="cep" name="cep" placeholder="Digite o CEP" disabled>
+                </fieldset>
+    
+                <label for="endereco">Endereço:</label>
+                <textarea id="endereco" name="endereco" placeholder="Detalhes do endereço" disabled></textarea>
+
+                <label for="comentario">Comentário sobre a denúncia:</label>
+                <textarea id="comentario" name="comentario" placeholder="Escreva detalhes sobre a denúncia..." required></textarea>
+
+                <label for="imagem">Adicionar imagem:</label>
+                <input type="file" id="imagem" name="imagem" accept="image/*">
+
+
+                <form action="/submit-form" method="post" enctype="multipart/form-data">
+                </form>
+                
+                <div class="butao-container">
+                    <button type="submit" class="butaoEnvia">Enviar Denúncia</button>
+                </div>
+               
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const radios = document.querySelectorAll('input[name="localizacao"]');
+            const cepInput = document.getElementById('cep');
+            const enderecoArea = document.getElementById('endereco');
+            const localizacaoBtn = document.getElementById('buscar-localizacao');
+    
+            radios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'escrita') {
+                        cepInput.disabled = false;
+                        enderecoArea.disabled = false;
+                        localizacaoBtn.disabled = true;
+                    } else {
+                        cepInput.disabled = true;
+                        enderecoArea.disabled = false;
+                        localizacaoBtn.disabled = false;
+                    }a
+                });
+            });
+    
+            localizacaoBtn.addEventListener('click', function() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition, showError);
+                } else {
+                    enderecoArea.value = "Geolocalização não é suportada por este navegador.";
+                }
+            });
+    
+            function showPosition(position) {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        enderecoArea.value = data.display_name;
+                    })
+                    .catch(error => {
+                        enderecoArea.value = "Não foi possível obter o endereço.";
+                    });
+            }
+    
+            function showError(error) {
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        enderecoArea.value = "Usuário negou a solicitação de Geolocalização.";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        enderecoArea.value = "Informação de localização não está disponível.";
+                        break;
+                    case error.TIMEOUT:
+                        enderecoArea.value = "A solicitação para obter a localização do usuário expirou.";
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        enderecoArea.value = "Ocorreu um erro desconhecido.";
+                        break;
+                }
+            }
+        });
+    </script>
+    
+    
+    
+</body>
+</html>
