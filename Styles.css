@@ -120,6 +120,14 @@ form input[type="file"] {
 }
 
 .butaoEnvia:hover {
-    background-color: #333333; /* Fundo preto mais escuro no hover */
+    background-color: #eed9d9; /* Fundo preto mais escuro no hover */
 
+}
+#map {
+    height: 500px;
+    width: 600px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
