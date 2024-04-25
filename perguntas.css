@@ -1,0 +1,38 @@
+/* Estilo para o h1 */
+h1 {
+    text-align: center; /* Centraliza o texto */
+    font-size: 2em; /* Tamanho da fonte maior */
+    color: navy; /* Cor azul escuro */
+}
+
+/* Estilo para a pergunta */
+.question {
+    font-size: 1.2em; /* Tamanho da fonte um pouco maior */
+    cursor: pointer; /* Transforma o cursor em uma mãozinha quando passa por cima */
+    display: flex; /* Usar flexbox para alinhar os elementos */
+    justify-content: space-between; /* Alinha os itens em cada extremidade */
+    align-items: center; /* Alinha os itens verticalmente */
+}
+
+.question-text {
+    margin-right: 10px; /* Adiciona espaço entre o texto da pergunta e a seta */
+}
+
+/* Estilo para a resposta */
+.answer {
+    display: none; /* Inicialmente esconde a resposta */
+}
+
+/* Estilo para a seta */
+.arrow {
+    cursor: pointer; 
+}
+
+/* Estilo para a caixa grande */
+.faq-container {
+    width: 70%; /* Largura da caixa */
+    margin: 0 auto; /* Centraliza a caixa na página */
+    padding: 40px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda cinza */
+    border-radius: 10px; /* Bordas arredondadas */
+}
